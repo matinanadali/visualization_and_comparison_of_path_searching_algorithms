@@ -11,7 +11,7 @@ function SetPoints(props) {
     do {
         targetRow = Math.floor(Math.random()*rows);
         targetCol = Math.floor(Math.random()*columns);
-    } while (grid[targetRow][targetCol] === 1 || (startingRow == targetRow && startingCol == targetCol));
+    } while (grid[targetRow][targetCol] === 1 || (startingRow === targetRow && startingCol === targetCol));
     updateTarget({row:targetRow, col:targetCol});
 }
     return (

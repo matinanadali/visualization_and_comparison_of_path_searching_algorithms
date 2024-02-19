@@ -12,9 +12,6 @@ const algorithms = {
   'BidirectionalBFS' : BidirectionalSearch
 };
 const emptyCellColor = "#ccc";
-const wallCellColor = "#50514F";
-const visitedCell = "#FFE066";
-const activeCell = "#66ff66";
 const pathCell = "#F25F5C";
 function App() {
   const rows = 20;
@@ -35,7 +32,7 @@ function App() {
   }
   function updateTarget(newTarget) {
     if (target) {
-      updateCellColor(target.row, target.col. emptyCellColor);
+      updateCellColor(target.row, target.col, emptyCellColor);
     }
     setTarget(newTarget);
     updateCellColor(newTarget.row, newTarget.col, pathCell);
@@ -49,7 +46,6 @@ function App() {
     setCanChangeGrid(false);
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < columns; j++) {
-        const cell = document.getElementById(`row${i}col${j}`);
         if (grid[i][j] === 0 && !(i === start.row && j === start.col) && !(i === target.row && j === target.col)) {
           updateCellColor(i, j, emptyCellColor);
         } else if ((i === start.row && j === start.col) || (i === target.row && j === target.col)) {

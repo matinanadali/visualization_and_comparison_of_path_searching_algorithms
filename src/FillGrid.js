@@ -29,7 +29,7 @@ function FillGrid(props) {
             if (j >= 0 && j < columns) {
                 const cell = document.getElementById(`row${i}col${j}`);
                 const wall = Math.floor(Math.random()*1.2);
-                if (wall == 1) {
+                if (wall === 1) {
                     cell.style.backgroundSize = "100% 100%";
                     await delay(5);
                     updateGrid((grid) => {

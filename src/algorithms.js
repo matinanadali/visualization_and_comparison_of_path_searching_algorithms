@@ -70,7 +70,7 @@ export async function BFS(grid, start, target,updateCellColor) {
         q.shift();
         
         updateCellColor(currentRow, currentCol, visitedCell);
-        if (currentRow == target.row && currentCol == target.col) {
+        if (currentRow === target.row && currentCol === target.col) {
             reachedTarget = true;
             break;
         }
@@ -78,7 +78,7 @@ export async function BFS(grid, start, target,updateCellColor) {
             const newRow = currentRow + dr[i];
             const newCol = currentCol + dc[i];
     
-            if (outOfBounds(rows, columns, newRow, newCol) || visited[newRow][newCol] || grid[newRow][newCol] == 1) continue;
+            if (outOfBounds(rows, columns, newRow, newCol) || visited[newRow][newCol] || grid[newRow][newCol] === 1) continue;
             visited[newRow][newCol] = true;
             updateCellColor(newRow, newCol, activeCell);
             await delay(delayTime);
@@ -113,7 +113,7 @@ export async function DFS(grid, start, target, updateCellColor) {
             const newRow = currentRow + dr[i];
             const newCol = currentCol + dc[i];
     
-            if (outOfBounds(rows, columns, newRow, newCol) || visited[newRow][newCol] || grid[newRow][newCol] == 1) continue;
+            if (outOfBounds(rows, columns, newRow, newCol) || visited[newRow][newCol] || grid[newRow][newCol] === 1) continue;
             visited[newRow][newCol] = true;
             updateCellColor(newRow, newCol, activeCell);
             await delay(delayTime);
@@ -130,13 +130,7 @@ export async function DFS(grid, start, target, updateCellColor) {
        reconstructPath(parent, start, target, updateCellColor);
     }
 }
-class cell {
-    constructor(){
-        this.f = 0;
-        this.g = 0;
-        this.h = 0;
-    }
-}
+
 function getHValue(target, row, col) {
     return Math.abs(target.row - row) + Math.abs(target.col - col);
 }
@@ -171,7 +165,7 @@ export async function Astar(grid, start, target, updateCellColor) {
     const openList = [];
     openList.push([i, j, 0]);
     updateCellColor(start.row, start.col, activeCell);
-    while (openList.length != 0) {
+    while (openList.length !== 0) {
         const currentCell = openList[0];
         const currentRow = currentCell[0];
         const currentCol = currentCell[1];
@@ -182,7 +176,7 @@ export async function Astar(grid, start, target, updateCellColor) {
             let newRow = currentRow + dr[i];
             let newCol = currentCol + dc[i];
             if (outOfBounds(rows, columns, newRow, newCol) || closedList[newRow][newCol] || grid[newRow][newCol] === 1) continue;
-            if (newRow == target.row && newCol == target.col) {
+            if (newRow === target.row && newCol === target.col) {
                 parent[newRow][newCol] = [currentRow, currentCol];
                 reachedTarget = true;
                 break;
@@ -234,7 +228,7 @@ export async function BidirectionalSearch(grid, start, target, updateCellColor) 
             const newRow = currentRow + dr[i];
             const newCol = currentCol + dc[i];
     
-            if (outOfBounds(rows, columns, newRow, newCol) || visited[newRow][newCol] || grid[newRow][newCol] == 1) continue;
+            if (outOfBounds(rows, columns, newRow, newCol) || visited[newRow][newCol] || grid[newRow][newCol] === 1) continue;
             visited[newRow][newCol] = true;
             updateCellColor(newRow, newCol, activeCell);
             await delay(delayTime);
