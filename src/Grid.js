@@ -8,6 +8,7 @@ const Grid = (props) => {
     const grid = document.querySelector(".grid-container");
       const width = grid.getBoundingClientRect().width;
       console.log(width)
+      //calculate size of each cell based on the dimensions of the container
       const style = {
         width: `${width / columns}px`,
         height: `${width / columns}px`
@@ -15,7 +16,7 @@ const Grid = (props) => {
       setCellStyle(style);
   }, [rows, columns]);
 
-  // Generate an array of indices for rows and columns
+  //generate an array of indices for rows and columns
   const rowIndices = Array.from({ length: rows }, (_, index) => index);
   const columnIndices = Array.from({ length: columns }, (_, index) => index);
 

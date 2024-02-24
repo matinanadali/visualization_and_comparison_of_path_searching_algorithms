@@ -8,6 +8,7 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .step {
@@ -17,10 +18,11 @@
   color: #50514F;
   font-size: 1.2rem;
   background-color: #ededed;
+  min-width: 200px;
 }
+
 .disabled {
   opacity: 0.5;
-
   cursor:not-allowed;
 }
 
@@ -41,8 +43,11 @@ button {
     background-size: 100% 100%;
   color: #ededed;
   cursor: pointer;
+  
   }
+  min-width: 200px;
 }
+
 .selected {
   background-size: 100% 100%;
   color: #ededed;
@@ -59,9 +64,23 @@ select {
   border-bottom: 1px solid #50514F;
   margin: 0 1rem;
   font-family: "Montserrat", sans-serif;
+  padding: 0 0.5rem;
 }
 
 label {
   font-family: "Montserrat", sans-serif;
   color: #50514F;
 }
+
+.impossible {
+  width: 90vw;
+  background-color: #e7e7e4;
+  color: #e7e7e4;
+  background-image: linear-gradient(#50514F, #50514F);
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+  background-size: 100% 0%;
+  padding: 0.5rem 0;
+  transition: background-size .1s, color .1s;
+}
+

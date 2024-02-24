@@ -2,7 +2,7 @@
     width: 90vw;
     margin: auto;
     border: 2px solid #50514F;
-  
+    box-sizing: border-box;
 }
   
 .grid-row {
@@ -13,12 +13,11 @@
 .grid-cell {
     background-color: #ccc;
     border: 1px solid #999;
-
+    flex-grow: 1;
     background-image: linear-gradient(#50514F, #50514F);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 0% 0%;
     transition: background-size .1s, color .1s;
-
 }
   
